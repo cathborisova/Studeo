@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html>
+<body>
+<p> Create an assignment: <p>
+<input id="assignmentName" type="text" value="Assignment Name"/>
+<input id="description" type="text" value="Description"/>
+<p> Priority: </p>
+<div class="slidecontainer">
+  <input type="range" min="1" max="10" value="10" class="slider" id="myRange">
+  <p id="priorityNumb"> 1-10 </p>
+  
+</div>
+<p> Due Date: </p>
+<input id="dueDate" type="date">
+<p> How many minutes? </p>
+<input id="time" type="number" value=30>
+<button onclick="digital()">Digital</button>
+<button onclick="offline()">Offline</button>
+<button onclick="create()">Create</button>
+<button onclick="createAnother()">Create Another Assignment</button>
+<button onclick="Cancel">Cancel</button>
+<script>
+var slider; 
+slider.oninput = function() {
+slider = document.getElementById("myRange");
+  document.getElementById("priorityNumb")=slider.value;
+}
+</script>
+</body>
+</html>
