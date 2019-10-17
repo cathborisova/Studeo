@@ -134,7 +134,7 @@ function offline(){
         d.style.backgroundColor = "#FFFFFF";
         }
 function setCookies(){
-	document.cookie = "nameAssignment=" + encodeURIComponent(assignmentName.value) + ";" + "aclass=" + encodeURIComponent(classa.value) + ";" + "adescription=" + encodeURIComponent(descriptiona.value) +";"+ "path=/";
+	document.cookie = "nameAssignment=" + encodeURIComponent(assignmentName.value) + "; " + "aclass=" + encodeURIComponent(classa.value) + "; " + "adescription=" + encodeURIComponent(descriptiona.value) +"; "+ "path=/" + ";" + "HttpOnly = false" + ";";
 var cookie = document.cookie;
 document.write(decodeURIComponent(cookie));
 }
