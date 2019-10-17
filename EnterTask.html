@@ -134,11 +134,12 @@ function offline(){
         d.style.backgroundColor = "#FFFFFF";
         }
 function setCookies(){
-	document.cookie = "nameAssignment=" + (assignmentName + "; path=/";
+	document.cookie = "nameAssignment=" + encodeURIComponent(assignmentName) + "; path=/";
 var cookie = document.cookie;
-alert(cookie);
+document.write(decodeURIComponent(cookie));
 }
 
 </script>
 </body>
 </html>
+
