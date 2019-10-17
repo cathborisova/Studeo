@@ -1,3 +1,4 @@
+<!DOCTYPE>
 <html>
 
   <meta charset="uft-8">
@@ -19,5 +20,131 @@
         <div data-type="countdown" data-id="1515048" class="tickcounter" style="width: 100%; position: relative; padding-bottom: 25%"><a href="//www.tickcounter.com/countdown/1515048/my-countdown" title="My countdown">My countdown</a><a href="//www.tickcounter.com/" title="Countdown">Countdown</a></div><script>(function(d, s, id) { var js, pjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//www.tickcounter.com/static/js/loader.js"; pjs.parentNode.insertBefore(js, pjs); }(document, "script", "tickcounter-sdk"));</script>
     </ul>  
 <link rel="stylesheet" type="text/css" href="mystyle.css">
+         
+         
+<div id="countdown">
+  <div id="countdown-number"></div>
+  <svg>
+    <circle r="18" cx="20" cy="20"></circle>
+  </svg>
+</div>
+
+
+
+<form>
+Hours: <input type="text" id="hrs" name="hrs" value="0" size="3" maxlength="3" /> &nbsp; &nbsp; Minutes: <input type="text" id="mns" name="mns" value="0" size="2" maxlength="2" /> Seconds: <input type="text" id="scs" name="scs" value="0" size="2" maxlength="2" /><br/>
+<input type="button" id="btnct" value="START" onclick="countdownTimer()"/>
+</form>
+Countdown Timer: &nbsp; <span id="showhrs">00</span>:<span id="showmns">00</span>:<span id="showscs">00</span>
+<script type="text/javascript"><!--
+    /* Function to display a Countdown timer with starting time from a form */
+// sets variables for minutes and seconds
+var ctmnts = 0;
+var ctsecs = 0;
+var startchr = 0;       // used to control when to read data from form
+
+function countdownTimer() {
+  // https://coursesweb.net/javascript/
+  // if $startchr is 0, and form fields exists, gets data for minutes and seconds, and sets $startchr to 1
+  if(startchr == 0 && document.getElementById('mns') && document.getElementById('scs')) {
+    // makes sure the script uses integer numbers
+    ctmnts = parseInt(document.getElementById('mns').value) + 0;
+    ctsecs = parseInt(document.getElementById('scs').value) * 1;
+
+    // if data not a number, sets the value to 0
+    if(isNaN(ctmnts)) ctmnts = 0;
+    if(isNaN(ctsecs)) ctsecs = 0;
+
+    // rewrite data in form fields to be sure that the fields for minutes and seconds contain integer number
+    document.getElementById('mns').value = ctmnts;
+    document.getElementById('scs').value = ctsecs;
+    startchr = 1;
+    document.getElementById('btnct').setAttribute('disabled', 'disabled');     // disable the button
+  }
+
+  // if minutes and seconds are 0, sets $startchr to 0, and return false
+  if(ctmnts==0 && ctsecs==0) {
+    startchr = 0;
+    document.getElementById('btnct').removeAttribute('disabled');     // remove "disabled" to enable the button
+
+    /* HERE YOU CAN ADD TO EXECUTE A JavaScript FUNCTION WHEN COUNTDOWN TIMER REACH TO 0 */
+
+    return false;
+  }
+  else {
+    // decrease seconds, and decrease minutes if seconds reach to 0
+    ctsecs--;
+    if(ctsecs < 0) {
+      if(ctmnts > 0) {
+        ctsecs = 59;
+        ctmnts--;
+      }
+      else {
+        ctsecs = 0;
+        ctmnts = 0;
+      }
+    }
+  }
+
+  // display the time in page, and auto-calls this function after 1 seccond
+  document.getElementById('showmns').innerHTML = ctmnts;
+  document.getElementById('showscs').innerHTML = ctsecs;
+  setTimeout('countdownTimer()', 1000);
+}
+//-->
+
+</script>
+<style>
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #737373;
+}
+
+#countdown {
+  position: relative;
+  margin: auto;
+  margin-top: 100px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+}
+
+#countdown-number {
+  color: white;
+  display: inline-block;
+  line-height: 40px;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+svg circle {
+  stroke-dasharray: 113px;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  stroke-width: 2px;
+  stroke: white;
+  fill: none;
+  animation: countdown 60s linear infinite forwards;
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 113px;
+  }
+}
+</style>
+
+
 </body>
   </HTML>
