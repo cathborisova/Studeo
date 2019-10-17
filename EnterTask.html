@@ -35,13 +35,13 @@
   background: url('contrasticon.png');
   cursor: pointer;
 }
-
 .descriptionbox {
 	width: 173px;
     height:100px;
 }
-
-
+.on{
+background-color: #8CAEFF;
+}
 </style>
 <p> Create an assignment: <p> <br>
 <input id="assignmentName" type="text" value="Assignment Name" onclick="clearAN()"/><br>
@@ -59,21 +59,22 @@
 <p> How many minutes? </p>
 <input id="time" type="number" value="30" onclick="clearM()"><br>
 <button id="digital" class="on" onclick="digital()">Digital</button>
-<button id="offline" class= "off" onclick="offline()">Offline</button>
+<button id="offline" onclick="offline()">Offline</button>
 <br>
 	
 
 <form action="https://cathborisova.github.io/Studeo/Tasks.html">
-    <input type="submit" value="Create" />
+    <input onclick="setCookies()" type="submit" value="Create" />
 </form>
 	
 	<form action="https://cathborisova.github.io/Studeo/EnterTask.html">
-    <input type="submit" value="Create Another" />
+    <input onclick="setCookies()" type="submit" value="Create Another" />
 </form>
 	
 	<form action="https://cathborisova.github.io/Studeo/Tasks.html">
     <input type="submit" value="Cancel" />
 </form>
+<button onclick="setCookies()">hi</button>
 	
 <script>
 var date = new Date();
@@ -83,18 +84,19 @@ var counterc = 0;
 var counterm = 0;
 var digitalb = true;
 var offlineb = false;
+var assignmentName = document.getElementById("assignmentName");
+var classa = document.getElementById("class");
+var descriptiona = document.getElementById("description");
 var d = document.getElementById("digital");
 var o = document.getElementById("offline");
 var currentDate = date.toISOString().slice(0,10);
 document.getElementById("dueDate").value = currentDate;
 var slider = document.getElementById("myRange");
 document.getElementById("priorityNumb").innerHTML=slider.value;
-
 slider.oninput = function() {
 	document.getElementById("priorityNumb").innerHTML=slider.value;
 }
 var minutes = document.getElementById("time");
-
 function clearAN(){
 	if(counteran == 0){
 		document.getElementById("assignmentName").value = "";
@@ -119,7 +121,6 @@ function clearM(){
         }
         counterm++;
 }
-
 function digital(){
     digitalb = true;
      offlineb = false;
@@ -132,6 +133,12 @@ function offline(){
         o.style.backgroundColor = "#8CAEFF";
         d.style.backgroundColor = "#FFFFFF";
         }
+function setCookies(){
+	document.cookie = "nameAssignment=" + (assignmentName + "; path=/";
+var cookie = document.cookie;
+alert(cookie);
+}
+
 </script>
 </body>
 </html>
