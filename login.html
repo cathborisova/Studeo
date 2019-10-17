@@ -2,6 +2,12 @@
 <html> 
 <head>
 <title>Log In</title>
+ 
+<!-- Code if Google sign in actually worked 
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="288321056572-euu88orq4s5j4acoqmlne9ms3e2hn768.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+-->
 </head>
 <body>
   
@@ -17,11 +23,29 @@
     <button class="float-left submit-button" >Log In</button>
   </form>
   
-  <!-- This is where you'd add the Google Sign In if it ACTUALLY WORKED >:(((((  
-  Someone other than me feel free to try to get it to work. I think it might have to do with 
-  our website being a github.io thing. The internet suggested using python -m SimpleHTTPServer [port] 
-  Don't know how to do that though. So yeah... Feel free to try that. -->
+  <!-- This is where you'd add the Google Sign In if it ACTUALLY WORKED >:(((((
+  (Someone other than me feel free to try. I think it might have something to do with our website
+  being github.io??? Internet says to try python -m SimpleHTTPServer [port] but I don't know 
+  how to do that.)
+
+   <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      }
+    </script>
   
+  -->
   <p>Don't have an account?</p>
 <!-- Clicking the sign up button should redirect to Sign up page -->
   <form action="/Studeo/signup.html" class="inline">
