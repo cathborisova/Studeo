@@ -133,13 +133,14 @@ function offline(){
         d.style.backgroundColor = "#FFFFFF";
         }
 function SetCookie(){
-	document.cookie = "nameAssignment=" + document.getElementById("assignmentName").value;
-    document.cookie = "classa=" + document.getElementById("class").value;
-    document.cookie = "description=" + document.getElementById("description").value;
+	document.cookie =  encodeURIComponent("nameAssignment=" + document.getElementById("assignmentName").value);
+    document.cookie =  encodeURIComponent("class=" + document.getElementById("class").value);
+    document.cookie =  encodeURIComponent("description=" + document.getElementById("description").value);
 }
 function getCookie(){
-	alert(document.cookie);
+	alert(decodeURIComponent(document.cookie));
 }
+
 
 </script>
 </body>
