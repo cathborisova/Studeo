@@ -64,17 +64,18 @@ background-color: #8CAEFF;
 	
 
 <form action="https://cathborisova.github.io/Studeo/Tasks.html">
-    <input onclick="setCookies()" type="submit" value="Create" />
+    <input onclick="SetCookie()" type="submit" value="Create" />
 </form>
 	
 	<form action="https://cathborisova.github.io/Studeo/EnterTask.html">
-    <input onclick="setCookies()" type="submit" value="Create Another" />
+    <input onclick="SetCookie()" type="submit" value="Create Another" />
 </form>
 	
 	<form action="https://cathborisova.github.io/Studeo/Tasks.html">
     <input type="submit" value="Cancel" />
 </form>
-<button onclick="setCookies()">hi</button>
+<button onclick="SetCookie()">Set Cookie</button>
+<button onclick="getCookie()">Get Cookie</button>
 	
 <script>
 var date = new Date();
@@ -84,9 +85,7 @@ var counterc = 0;
 var counterm = 0;
 var digitalb = true;
 var offlineb = false;
-var assignmentName = document.getElementById("assignmentName");
-var classa = document.getElementById("class");
-var descriptiona = document.getElementById("description");
+
 var d = document.getElementById("digital");
 var o = document.getElementById("offline");
 var currentDate = date.toISOString().slice(0,10);
@@ -133,10 +132,13 @@ function offline(){
         o.style.backgroundColor = "#8CAEFF";
         d.style.backgroundColor = "#FFFFFF";
         }
-function setCookies(){
-	document.cookie = "nameAssignment=" + encodeURIComponent(assignmentName.value) + "; " + "aclass=" + encodeURIComponent(classa.value) + "; " + "adescription=" + encodeURIComponent(descriptiona.value) +"; "+ "path=/" + ";" + "HttpOnly = false" + ";";
-var cookie = document.cookie;
-document.write(decodeURIComponent(cookie));
+function SetCookie(){
+	document.cookie = "nameAssignment=" + document.getElementById("assignmentName").value;
+    document.cookie = "classa=" + document.getElementById("class").value;
+    document.cookie = "description=" + document.getElementById("description").value;
+}
+function getCookie(){
+	alert(document.cookie);
 }
 
 </script>
