@@ -1,6 +1,5 @@
 body {
-  background: url("../leafTest.jpg");
-  background-size: cover;
+  background-image: url("../leafTest.jpg");
 }
 
 h1 {
