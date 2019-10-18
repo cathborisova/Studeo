@@ -1,17 +1,36 @@
 <!DOCTYPE html>
-<html> 
+<html>
 <head>
-<title>Log In</title>
  
-<!-- Code if Google sign in actually worked 
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="288321056572-euu88orq4s5j4acoqmlne9ms3e2hn768.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
--->
+ <!-- Styling -->
+<style>
+body {
+  background-color: lightgray;
+}
+
+h1 {
+  font-family: verdana;
+  color: black;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 12px;
+}
+
+div {
+  font-family: verdana;
+  font-size: 12px;
+}
+</style>
+<title>Log In</title>
 </head>
+
 <body>
+
  <h1>Log In to Studeo</h1>  
-<!-- Enter log in info here. Requires information to be filled in before log in button will redirect to home page-->
+
  <form action="/Studeo">
      <div>Email or Username</div>
         <input type="text" required> 
@@ -20,35 +39,12 @@
     <div></div>   
      <input type="Submit" value="Log In">
      </form>
-  
-  <!-- This is where you'd add the Google Sign In if it ACTUALLY WORKED >:(((((
-  (Someone other than me feel free to try. I think it might have something to do with our website
-  being github.io??? Internet says to try python -m SimpleHTTPServer [port] but I don't know 
-  how to do that.)
-
-   <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <script>
-      function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-      }
-    </script>
-  
-  -->
-  <p>Don't have an account?</p>
-<!-- Clicking the sign up button should redirect to Sign up page -->
+     
+     <p>Don't have an account?</p>
+<!-- for some reason the code doesn't like the 2 forms but oh well -->
   <form action="/Studeo/signup.html" class="inline">
     <button class="float-left submit-button" >Sign Up</button>
-</form>
-  
+    
 </body>
 </html>
+    
