@@ -6,7 +6,7 @@ body {
 h1 {
   font-family: verdana;
   text-align: center;
-  background: black;
+  background: rgba(100, 100, 100, 0.5);
   color: white;
 }
 p {
