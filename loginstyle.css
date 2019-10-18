@@ -5,8 +5,9 @@ body {
 
 h1 {
   font-family: verdana;
-  color: white;
   text-align: center;
+  background: rgba(120, 120, 120, 0.5);
+  color: white;
 }
 p {
   font-family: verdana;
