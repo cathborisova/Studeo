@@ -1,5 +1,18 @@
 body {
-  background-image: url("../leafTest.jpg")
+  background-image: url("../leafTest.jpg");
   
+}
 
+h1 {
+  font-family: verdana;
+  color: black;
+  text-align: center;
+}
+p {
+  font-family: verdana;
+  font-size: 12px;
+}
+div {
+  font-family: verdana;
+  font-size: 12px;
 }
