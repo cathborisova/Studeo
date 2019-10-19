@@ -1,148 +1,15 @@
+
 <!DOCTYPE>
 <html>
 <body>
-<style>
-.slidecontainer {
-  width: 100%;
-}
-.slider {
-  -webkit-appearance: none;
-  width: 20%;
-  height: 10px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
-.slider:hover {
-  opacity: 1;
-}
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%; 
-  background: #8CAEFF;
-  cursor: pointer;
-}
-.slider::-moz-range-thumb {
-  width: 23px;
-  height: 24px;
-  border: 0;
-  background: url('contrasticon.png');
-  cursor: pointer;
-}
-.descriptionbox {
-	width: 173px;
-    height:100px;
-}
-.on{
-background-color: #8CAEFF;
-}
 </style>
-<p> Create an assignment: <p> <br>
-<input id="assignmentName" type="text" value="Assignment Name" onclick="clearAN()"/><br>
-<input id="class" type="text" value="Class" onclick="clearC()"/> <br>
-<input id="description" type="text" value="Description of assignment" onclick = "clearD()" class="descriptionbox"/>
-<p> Priority: </p>
-	<i class="fas fa-question-circle">?</i>
-<div class="slidecontainer">
-  <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
-  <p id="priorityNumb"> 1-10 </p>
+<form action="createAssignment_get.php" method="get">
+  <input type="text" name="assignment" placeholder="Assignment Name"> <br>
+  <input type="text" name="class" placeholder="class"> <br>
+  <input type="text" name="description" placeholder="Description of Assignment"> <br>
+  <input type="submit">
+  </form>
   
-</div>
-<p> Due Date: </p>
-<input id="dueDate" type="date">
-<p> How many minutes? </p>
-<input id="time" type="number" value="30" onclick="clearM()"><br>
-<button id="digital" class="on" onclick="digital()">Digital</button>
-<button id="offline" onclick="offline()">Offline</button>
-<br>
-	
 
-<form action="https://cathborisova.github.io/Studeo/Tasks.html">
-    <input onclick="SetCookie()" type="submit" value="Create" />
-</form>
-	
-	<form action="https://cathborisova.github.io/Studeo/EnterTask.html">
-    <input onclick="SetCookie()" type="submit" value="Create Another" />
-</form>
-	
-	<form action="https://cathborisova.github.io/Studeo/Tasks.html">
-    <input type="submit" value="Cancel" />
-</form>
-<button onclick="SetCookie()">Set Cookie</button>
-<button onclick="getCookie()">Get Cookie</button>
-	
-<script>
-var date = new Date();
-var counteran = 0;
-var counterd = 0;
-var counterc = 0;
-var counterm = 0;
-var digitalb = true;
-var offlineb = false;
-
-var d = document.getElementById("digital");
-var o = document.getElementById("offline");
-var currentDate = date.toISOString().slice(0,10);
-document.getElementById("dueDate").value = currentDate;
-var slider = document.getElementById("myRange");
-document.getElementById("priorityNumb").innerHTML=slider.value;
-slider.oninput = function() {
-	document.getElementById("priorityNumb").innerHTML=slider.value;
-}
-var minutes = document.getElementById("time");
-function clearAN(){
-	if(counteran == 0){
-		document.getElementById("assignmentName").value = "";
-    }
-    counteran++;
-}
-function clearD(){
-	if(counterd == 0){
-    	document.getElementById("description").value = "";
-     }
-     counterd++;
-}
-function clearC(){
-	if(counterc==0){
-    	document.getElementById("class").value = "";
-        }
-    	counterc++;
-    }
-function clearM(){
-	if(counterm==0){
-    	document.getElementById("time").value ="";
-        }
-        counterm++;
-}
-function digital(){
-    digitalb = true;
-     offlineb = false;
-    d.style.backgroundColor = "#8CAEFF"; 
-   o.style.backgroundColor = "#FFFFFF";
-}
-function offline(){
- 			offlineb = true;
-        digitalb = false;
-        o.style.backgroundColor = "#8CAEFF";
-        d.style.backgroundColor = "#FFFFFF";
-        }
-function SetCookie(){
-	document.cookie =  encodeURIComponent("nameAssignment=" + document.getElementById("assignmentName").value);
-    document.cookie =  encodeURIComponent("class=" + document.getElementById("class").value);
-    document.cookie =  encodeURIComponent("description=" + document.getElementById("description").value);
-}
-function getCookie(){
-	alert(decodeURIComponent(document.cookie));
-}
-
-
-</script>
 </body>
 </html>
-
